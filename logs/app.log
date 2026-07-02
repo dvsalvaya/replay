@@ -1,0 +1,125 @@
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | WARNING  | app.core.exceptions                 | HTTP 401 | POST /auth/login | Credenciais inválidas
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 401 Unauthorized"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | WARNING  | app.core.exceptions                 | HTTP 401 | POST /auth/login | Credenciais inválidas
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 401 Unauthorized"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 20:49:34 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /videos/ | Token inválido ou expirado
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 401 Unauthorized"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 20:49:34 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /videos/ | Token não fornecido
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 401 Unauthorized"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /admin/ttl/status | Token não fornecido
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/admin/ttl/status "HTTP/1.1 401 Unauthorized"
+2026-07-02 20:49:34 | WARNING  | app.core.exceptions                 | HTTP 401 | POST /admin/ttl/run | Token não fornecido
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/admin/ttl/run "HTTP/1.1 401 Unauthorized"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/admin/ttl/status "HTTP/1.1 200 OK"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 20:49:34 | INFO     | app.admin.router                    | TTL: execução manual disparada via /admin/ttl/run
+2026-07-02 20:49:34 | INFO     | app.application.ttl.use_cases       | TTL cleanup iniciado
+2026-07-02 20:49:34 | INFO     | app.application.ttl.use_cases       | TTL: 1 vídeo(s) candidato(s) à limpeza
+2026-07-02 20:49:34 | DEBUG    | app.application.ttl.use_cases       | TTL: arquivo removido: ./storage/videos/expired_test.mp4
+2026-07-02 20:49:34 | INFO     | app.application.ttl.use_cases       | TTL cleanup concluído em 0.01s: 1 vídeos removidos, 1 arquivos deletados, 0.0 MB liberados
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/admin/ttl/run "HTTP/1.1 200 OK"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 20:49:34 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /videos/ | Token não fornecido
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 401 Unauthorized"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 200 OK"
+2026-07-02 20:49:34 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 20:49:34 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:49:34 | INFO     | httpx                               | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-02 20:56:58 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 20:57:04 | WARNING  | app.core.exceptions                 | HTTP 404 | GET / | Not Found
+2026-07-02 20:57:04 | WARNING  | app.core.exceptions                 | HTTP 404 | GET /favicon.ico | Not Found
+2026-07-02 20:57:45 | INFO     | app.infrastructure.camera.opencv_adapter | Iniciando câmera no device index 0
+2026-07-02 20:57:45 | INFO     | app.infrastructure.camera.opencv_adapter | Thread de captura iniciada (device=0)
+2026-07-02 20:57:45 | INFO     | app.infrastructure.camera.opencv_adapter | Câmera iniciada com sucesso
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | WARNING  | app.core.exceptions                 | HTTP 401 | POST /auth/login | Credenciais inválidas
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 401 Unauthorized"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | WARNING  | app.core.exceptions                 | HTTP 401 | POST /auth/login | Credenciais inválidas
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 401 Unauthorized"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 21:00:53 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /videos/ | Token inválido ou expirado
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 401 Unauthorized"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 21:00:53 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /videos/ | Token não fornecido
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 401 Unauthorized"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /admin/ttl/status | Token não fornecido
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/admin/ttl/status "HTTP/1.1 401 Unauthorized"
+2026-07-02 21:00:53 | WARNING  | app.core.exceptions                 | HTTP 401 | POST /admin/ttl/run | Token não fornecido
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/admin/ttl/run "HTTP/1.1 401 Unauthorized"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/admin/ttl/status "HTTP/1.1 200 OK"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 21:00:53 | INFO     | app.admin.router                    | TTL: execução manual disparada via /admin/ttl/run
+2026-07-02 21:00:53 | INFO     | app.application.ttl.use_cases       | TTL cleanup iniciado
+2026-07-02 21:00:53 | INFO     | app.application.ttl.use_cases       | TTL: 1 vídeo(s) candidato(s) à limpeza
+2026-07-02 21:00:53 | DEBUG    | app.application.ttl.use_cases       | TTL: arquivo removido: ./storage/videos/expired_test.mp4
+2026-07-02 21:00:53 | INFO     | app.application.ttl.use_cases       | TTL cleanup concluído em 0.01s: 1 vídeos removidos, 1 arquivos deletados, 0.0 MB liberados
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/admin/ttl/run "HTTP/1.1 200 OK"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 21:00:53 | WARNING  | app.core.exceptions                 | HTTP 401 | GET /videos/ | Token não fornecido
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 401 Unauthorized"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/videos/ "HTTP/1.1 200 OK"
+2026-07-02 21:00:53 | DEBUG    | asyncio                             | Using selector: EpollSelector
+2026-07-02 21:00:53 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:00:53 | INFO     | httpx                               | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-02 21:01:50 | INFO     | app.core.logging_config             | Logging configurado: nível=INFO, arquivo=./logs/app.log
+2026-07-02 21:01:56 | INFO     | app.infrastructure.camera.opencv_adapter | Iniciando câmera no device index 0
+2026-07-02 21:01:56 | INFO     | app.infrastructure.camera.opencv_adapter | Thread de captura iniciada (device=0)
+2026-07-02 21:01:56 | INFO     | app.infrastructure.camera.opencv_adapter | Câmera iniciada com sucesso
+2026-07-02 21:02:03 | DEBUG    | app.infrastructure.video.ffmpeg_writer | FFmpeg comando: ffmpeg -y -framerate 10.12710950203295 -i /home/salvaya/Projetos/Replay/storage/temp/tmp_vfovaxs/frame_%06d.jpg -c:v libx264 -crf 23 -preset ultrafast -pix_fmt yuv420p -movflags +faststart ./storage/videos/moment_1783033323_fb27ea96.mp4
+2026-07-02 21:02:03 | INFO     | app.infrastructure.video.ffmpeg_writer | FFmpeg iniciado: 70 frames @ 10.1fps → ./storage/videos/moment_1783033323_fb27ea96.mp4
+2026-07-02 21:02:04 | DEBUG    | app.infrastructure.video.ffmpeg_writer | FFmpeg stderr (últimas 3 linhas): [libx264 @ 0x558c309f9b80] i16 v,h,dc,p: 21% 18% 34% 28%; [libx264 @ 0x558c309f9b80] i8c dc,h,v,p: 30% 27% 32% 12%; [libx264 @ 0x558c309f9b80] kb/s:4947.27
+2026-07-02 21:02:04 | INFO     | app.infrastructure.video.ffmpeg_writer | FFmpeg concluído: 6.9s de vídeo, 4.1 MB, arquivo: moment_1783033323_fb27ea96.mp4
+2026-07-02 21:04:25 | DEBUG    | app.infrastructure.video.ffmpeg_writer | FFmpeg comando: ffmpeg -y -framerate 9.980531458257262 -i /home/salvaya/Projetos/Replay/storage/temp/tmprmiaabh2/frame_%06d.jpg -c:v libx264 -crf 23 -preset ultrafast -pix_fmt yuv420p -movflags +faststart ./storage/videos/moment_1783033465_ae0de583.mp4
+2026-07-02 21:04:25 | INFO     | app.infrastructure.video.ffmpeg_writer | FFmpeg iniciado: 1484 frames @ 10.0fps → ./storage/videos/moment_1783033465_ae0de583.mp4
+2026-07-02 21:04:36 | DEBUG    | app.infrastructure.video.ffmpeg_writer | FFmpeg stderr (últimas 3 linhas): [libx264 @ 0x56171f03fac0] i16 v,h,dc,p: 21% 15% 41% 23%; [libx264 @ 0x56171f03fac0] i8c dc,h,v,p: 30% 26% 33% 10%; [libx264 @ 0x56171f03fac0] kb/s:4865.21
+2026-07-02 21:04:36 | INFO     | app.infrastructure.video.ffmpeg_writer | FFmpeg concluído: 148.7s de vídeo, 86.2 MB, arquivo: moment_1783033465_ae0de583.mp4
+2026-07-02 21:05:11 | INFO     | app.infrastructure.camera.opencv_adapter | Parando a câmera...
+2026-07-02 21:05:11 | INFO     | app.infrastructure.camera.opencv_adapter | Thread de captura encerrada
+2026-07-02 21:05:11 | INFO     | app.infrastructure.camera.opencv_adapter | Câmera parada com sucesso

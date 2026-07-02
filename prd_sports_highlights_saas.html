@@ -1,0 +1,372 @@
+
+<style>
+  .prd { font-family: var(--font-sans); color: var(--text-primary); padding: 1rem 0; max-width: 680px; }
+  .prd-header { border-bottom: 0.5px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .prd-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--bg-accent); color: var(--text-accent); font-size: 12px; padding: 4px 10px; border-radius: var(--radius); margin-bottom: 1rem; }
+  .prd-title { font-size: 22px; font-weight: 500; margin: 0 0 0.5rem; }
+  .prd-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
+  .meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); }
+  .section { margin-bottom: 2rem; }
+  .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.75rem; }
+  .section-title { font-size: 16px; font-weight: 500; margin: 0 0 1rem; }
+  .card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem; }
+  .card-icon { width: 32px; height: 32px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .card-title { font-size: 14px; font-weight: 500; }
+  .card-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .pill { display: inline-flex; align-items: center; font-size: 12px; padding: 3px 10px; border-radius: 999px; margin: 2px; }
+  .pill-green { background: var(--bg-success); color: var(--text-success); }
+  .pill-amber { background: var(--bg-warning); color: var(--text-warning); }
+  .pill-red { background: var(--bg-danger); color: var(--text-danger); }
+  .pill-blue { background: var(--bg-accent); color: var(--text-accent); }
+  .row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .col { flex: 1; min-width: 180px; }
+  .stat-card { background: var(--surface-1); border-radius: var(--radius); padding: 1rem; border: 0.5px solid var(--border); }
+  .stat-label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+  .stat-value { font-size: 20px; font-weight: 500; }
+  .timeline { position: relative; padding-left: 1.5rem; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 1px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 1.25rem; }
+  .tl-dot { position: absolute; left: -1.5rem; top: 4px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--border-accent); background: var(--bg-accent); }
+  .tl-dot.done { background: var(--fill-success); border-color: var(--fill-success); }
+  .tl-week { font-size: 12px; font-weight: 500; color: var(--text-accent); margin-bottom: 2px; }
+  .tl-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .tl-tasks { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+  .risk-row { display: flex; align-items: flex-start; gap: 10px; padding: 0.75rem 0; border-bottom: 0.5px solid var(--border); }
+  .risk-row:last-child { border-bottom: none; }
+  .risk-text { flex: 1; }
+  .risk-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .risk-mit { font-size: 12px; color: var(--text-secondary); }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 2rem 0; }
+  .user-story { font-size: 13px; color: var(--text-secondary); border-left: 2px solid var(--border-accent); padding-left: 0.75rem; margin-bottom: 0.75rem; line-height: 1.6; }
+  .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .scope-in { background: var(--bg-success); border: 0.5px solid var(--border-success); border-radius: var(--radius); padding: 0.75rem 1rem; }
+  .scope-out { background: var(--bg-danger); border: 0.5px solid var(--border-danger); border-radius: var(--radius); padding: 0.75rem 1rem; }
+  .scope-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+  .scope-in .scope-label { color: var(--text-success); }
+  .scope-out .scope-label { color: var(--text-danger); }
+  .scope-item { font-size: 12px; color: var(--text-secondary); line-height: 1.7; display: flex; align-items: flex-start; gap: 6px; }
+  .nfr-row { display: flex; align-items: center; gap: 10px; padding: 0.6rem 0; border-bottom: 0.5px solid var(--border); }
+  .nfr-row:last-child { border-bottom: none; }
+  .nfr-label { font-size: 13px; font-weight: 500; width: 130px; flex-shrink: 0; }
+  .nfr-val { font-size: 13px; color: var(--text-secondary); }
+  .send-btn { background: transparent; border: 0.5px solid var(--border-strong); border-radius: var(--radius); padding: 6px 14px; font-size: 13px; color: var(--text-secondary); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-top: 0.5rem; }
+  .send-btn:hover { background: var(--surface-1); }
+</style>
+
+<div class="prd">
+  <div class="prd-header">
+    <div class="prd-badge"><i class="ti ti-movie" aria-hidden="true"></i> PRD — Versão 1.0</div>
+    <h1 class="prd-title">Sports Highlights — Plataforma de Momentos Esportivos</h1>
+    <p style="font-size:14px; color:var(--text-secondary); margin:0 0 1rem; line-height:1.6;">Sistema local para captura, processamento e exibição de momentos incríveis de partidas esportivas em quadras pagas.</p>
+    <div class="prd-meta">
+      <div class="meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> Timeline: 8 semanas</div>
+      <div class="meta-item"><i class="ti ti-user" aria-hidden="true"></i> Solo developer</div>
+      <div class="meta-item"><i class="ti ti-device-laptop" aria-hidden="true"></i> MVP Local-First</div>
+      <div class="meta-item"><i class="ti ti-coin" aria-hidden="true"></i> Orçamento: R$0 inicial</div>
+    </div>
+  </div>
+
+  <!-- Visão Geral -->
+  <div class="section">
+    <div class="section-label">01 — Visão</div>
+    <div class="row">
+      <div class="col">
+        <div class="stat-card">
+          <div class="stat-label">Problema</div>
+          <div style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-top:4px;">Jogadores não conseguem registrar seus melhores momentos em quadras pagas de forma simples e automática.</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-card">
+          <div class="stat-label">Solução</div>
+          <div style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-top:4px;">Software instalado na quadra que mantém buffer contínuo e salva os últimos 1-2 min com um clique.</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-card">
+          <div class="stat-label">Diferencial</div>
+          <div style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-top:4px;">Único no mercado local. Fácil instalação. Alto valor percebido. Aumenta engajamento dos jogadores.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Usuários & Stories -->
+  <div class="section">
+    <div class="section-label">02 — Usuários & Histórias</div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--bg-accent)"><i class="ti ti-building" style="color:var(--text-accent); font-size:18px" aria-hidden="true"></i></div>
+        <div class="card-title">Dono da Quadra (usuário primário)</div>
+      </div>
+      <div class="card-body">
+        <div class="user-story">Como dono de quadra, quero fazer login no sistema para acessar o painel de controle da câmera.</div>
+        <div class="user-story">Como dono de quadra, quero ver o feed ao vivo da câmera para monitorar as partidas em andamento.</div>
+        <div class="user-story">Como dono de quadra, quero clicar em "Salvar Momento" e ter os últimos 2 minutos salvos automaticamente.</div>
+        <div class="user-story">Como dono de quadra, quero ver a galeria de vídeos salvos e reproduzi-los na interface.</div>
+        <div class="user-story">Como dono de quadra, quero que vídeos expirem automaticamente após X dias para não lotar o disco.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Escopo -->
+  <div class="section">
+    <div class="section-label">03 — Escopo do MVP</div>
+    <div class="scope-grid">
+      <div class="scope-in">
+        <div class="scope-label"><i class="ti ti-circle-check" aria-hidden="true"></i> Dentro do escopo</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Login simples (usuário/senha)</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Preview ao vivo da webcam</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Buffer circular (últimos 2 min)</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Botão "Salvar Momento"</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Corte básico de vídeo</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Galeria de vídeos salvos</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Reprodutor de vídeo</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>TTL automático (expiração)</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Rodar 100% local (localhost)</div>
+      </div>
+      <div class="scope-out">
+        <div class="scope-label"><i class="ti ti-circle-x" aria-hidden="true"></i> Fora do escopo</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Upload para nuvem</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Compartilhamento externo</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Multi-câmera</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Analytics de visualização</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Cadastro de clientes</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Pagamentos / assinatura</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>App mobile</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>Edição avançada de vídeo</div>
+        <div class="scope-item"><i class="ti ti-point" aria-hidden="true" style="font-size:8px; margin-top:5px; flex-shrink:0"></i>IA / processamento</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Funcionalidades -->
+  <div class="section">
+    <div class="section-label">04 — Funcionalidades Core</div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--bg-accent)"><i class="ti ti-lock" style="color:var(--text-accent); font-size:18px" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-title">F1 — Autenticação</div>
+          <div style="display:flex; gap:4px; margin-top:4px;"><span class="pill pill-green">MVP</span><span class="pill pill-blue">Semana 1</span></div>
+        </div>
+      </div>
+      <div class="card-body">Login com usuário e senha fixos (hardcoded no MVP). JWT para sessão. Rota protegida para o dashboard. Sem cadastro de novos usuários nesta versão.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#E1F5EE"><i class="ti ti-video" style="color:#0F6E56; font-size:18px" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-title">F2 — Captura & Preview ao Vivo</div>
+          <div style="display:flex; gap:4px; margin-top:4px;"><span class="pill pill-green">MVP</span><span class="pill pill-blue">Semana 2</span></div>
+        </div>
+      </div>
+      <div class="card-body">Webcam captura frames contínuos via OpenCV. Frontend exibe preview ao vivo via MJPEG stream ou WebSocket. Latência aceitável: até 2 segundos. Buffer circular em memória mantém os últimos 120 segundos gravados em disco temporário.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#FAEEDA"><i class="ti ti-player-record" style="color:#854F0B; font-size:18px" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-title">F3 — Salvar Momento</div>
+          <div style="display:flex; gap:4px; margin-top:4px;"><span class="pill pill-green">MVP</span><span class="pill pill-blue">Semana 3</span></div>
+        </div>
+      </div>
+      <div class="card-body">Botão "Salvar Momento" captura os últimos N segundos do buffer (configurável: 60s, 90s, 120s). FFmpeg processa e salva como MP4 em disco local. Metadados (data, hora, duração) salvos no SQLite. Feedback visual ao usuário (loading → sucesso).</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#FBEAF0"><i class="ti ti-cut" style="color:#993556; font-size:18px" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-title">F4 — Corte de Vídeo</div>
+          <div style="display:flex; gap:4px; margin-top:4px;"><span class="pill pill-green">MVP</span><span class="pill pill-blue">Semana 4</span></div>
+        </div>
+      </div>
+      <div class="card-body">Interface de corte simples: slider com tempo inicial e final. Preview do corte antes de salvar. FFmpeg realiza o corte sem re-encodar (stream copy) para ser rápido. Vídeo cortado substitui ou cria novo registro.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--bg-accent)"><i class="ti ti-layout-grid" style="color:var(--text-accent); font-size:18px" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-title">F5 — Galeria & Reprodutor</div>
+          <div style="display:flex; gap:4px; margin-top:4px;"><span class="pill pill-green">MVP</span><span class="pill pill-blue">Semana 5</span></div>
+        </div>
+      </div>
+      <div class="card-body">Grid de vídeos salvos com thumbnail, data e duração. Reprodutor HTML5 nativo. Deletar vídeo manualmente. Badge visual indicando tempo restante até expiração.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#EAF3DE"><i class="ti ti-clock" style="color:#3B6D11; font-size:18px" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-title">F6 — TTL & Expiração Automática</div>
+          <div style="display:flex; gap:4px; margin-top:4px;"><span class="pill pill-green">MVP</span><span class="pill pill-blue">Semana 5</span></div>
+        </div>
+      </div>
+      <div class="card-body">Vídeos salvos expiram após N dias (configurável, padrão: 7 dias). Job periódico (background task) verifica e deleta vídeos expirados. Libera espaço em disco automaticamente. Log de deleções para auditoria.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Requisitos não funcionais -->
+  <div class="section">
+    <div class="section-label">05 — Requisitos Não Funcionais</div>
+    <div class="card">
+      <div class="nfr-row"><div class="nfr-label"><i class="ti ti-gauge" aria-hidden="true" style="margin-right:6px"></i>Latência live</div><div class="nfr-val">≤ 2 segundos aceitável no MVP</div></div>
+      <div class="nfr-row"><div class="nfr-label"><i class="ti ti-bolt" aria-hidden="true" style="margin-right:6px"></i>Salvar vídeo</div><div class="nfr-val">≤ 10 segundos para processar e salvar 2 min</div></div>
+      <div class="nfr-row"><div class="nfr-label"><i class="ti ti-device-desktop" aria-hidden="true" style="margin-right:6px"></i>Plataforma</div><div class="nfr-val">Windows / macOS / Linux com Python 3.11+</div></div>
+      <div class="nfr-row"><div class="nfr-label"><i class="ti ti-database" aria-hidden="true" style="margin-right:6px"></i>Armazenamento</div><div class="nfr-val">SQLite (metadados) + sistema de arquivos local (vídeos)</div></div>
+      <div class="nfr-row"><div class="nfr-label"><i class="ti ti-shield" aria-hidden="true" style="margin-right:6px"></i>Segurança</div><div class="nfr-val">JWT para sessão, rotas protegidas, senhas com hash</div></div>
+      <div class="nfr-row"><div class="nfr-label"><i class="ti ti-users" aria-hidden="true" style="margin-right:6px"></i>Concorrência</div><div class="nfr-val">1 usuário simultâneo no MVP (1 quadra)</div></div>
+      <div class="nfr-row"><div class="nfr-label"><i class="ti ti-wifi-off" aria-hidden="true" style="margin-right:6px"></i>Offline</div><div class="nfr-val">100% funcional sem internet (local-first)</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Stack -->
+  <div class="section">
+    <div class="section-label">06 — Stack Técnica</div>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div style="font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); margin-bottom:8px;">Backend</div>
+          <div style="font-size:13px; line-height:2;">
+            <span class="pill pill-blue">Python 3.11+</span>
+            <span class="pill pill-blue">FastAPI</span>
+            <span class="pill pill-blue">SQLite + SQLAlchemy</span>
+            <span class="pill pill-blue">OpenCV</span>
+            <span class="pill pill-blue">FFmpeg</span>
+            <span class="pill pill-blue">JWT (python-jose)</span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div style="font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); margin-bottom:8px;">Frontend</div>
+          <div style="font-size:13px; line-height:2;">
+            <span class="pill pill-green">React 18</span>
+            <span class="pill pill-green">TypeScript</span>
+            <span class="pill pill-green">Vite</span>
+            <span class="pill pill-green">TailwindCSS</span>
+            <span class="pill pill-green">React Query</span>
+            <span class="pill pill-green">React Router</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Roadmap -->
+  <div class="section">
+    <div class="section-label">07 — Roadmap (8 semanas)</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Semana 1–2</div>
+        <div class="tl-title">Setup & Fundação</div>
+        <div class="tl-tasks">Estrutura do projeto · FastAPI + SQLite · Autenticação JWT · React + Vite setup · Rota de login · Deploy local funcional</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Semana 3</div>
+        <div class="tl-title">Captura & Buffer</div>
+        <div class="tl-tasks">OpenCV capturando webcam · Buffer circular em memória · Stream MJPEG para o frontend · Preview ao vivo no dashboard</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Semana 4</div>
+        <div class="tl-title">Salvar Momento</div>
+        <div class="tl-tasks">Endpoint "save moment" · FFmpeg processa buffer → MP4 · Salvamento em disco · Registro no SQLite · Feedback no frontend</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Semana 5</div>
+        <div class="tl-title">Galeria & Corte</div>
+        <div class="tl-tasks">Listagem de vídeos · Reprodutor HTML5 · Interface de corte com slider · FFmpeg stream copy · TTL automático</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Semana 6–7</div>
+        <div class="tl-title">Polish & Qualidade</div>
+        <div class="tl-tasks">Tratamento de erros · Logs · Testes básicos · UX ajustes · Documentação de setup</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Semana 8</div>
+        <div class="tl-title">Demo & Validação</div>
+        <div class="tl-tasks">Testes com quadra real · Ajustes de feedback · Preparação do pitch para investimento</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Riscos -->
+  <div class="section">
+    <div class="section-label">08 — Riscos & Mitigações</div>
+    <div class="card">
+      <div class="risk-row">
+        <span class="pill pill-red" style="flex-shrink:0">Alto</span>
+        <div class="risk-text">
+          <div class="risk-name">Buffer circular complexo para iniciante</div>
+          <div class="risk-mit">Mitigação: usar threading + deque do Python, estudar exemplos antes de codar</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <span class="pill pill-red" style="flex-shrink:0">Alto</span>
+        <div class="risk-text">
+          <div class="risk-name">Timeline apertado (2 meses solo)</div>
+          <div class="risk-mit">Mitigação: MVP pequeno, sem funcionalidades extras, foco total no core</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <span class="pill pill-amber" style="flex-shrink:0">Médio</span>
+        <div class="risk-text">
+          <div class="risk-name">Performance do FFmpeg em hardware fraco</div>
+          <div class="risk-mit">Mitigação: usar stream copy (sem re-encode) para cortes, qualidade reduzida aceitável no MVP</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <span class="pill pill-amber" style="flex-shrink:0">Médio</span>
+        <div class="risk-text">
+          <div class="risk-name">Webcam com latência alta no preview</div>
+          <div class="risk-mit">Mitigação: MJPEG stream é simples e tolerante, ajustar FPS conforme hardware</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <span class="pill pill-green" style="flex-shrink:0">Baixo</span>
+        <div class="risk-text">
+          <div class="risk-name">Disco cheio por vídeos acumulados</div>
+          <div class="risk-mit">Mitigação: TTL automático + alerta de espaço em disco no dashboard</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Próximos passos -->
+  <div class="section">
+    <div class="section-label">09 — Próximos passos</div>
+    <div class="row">
+      <button class="send-btn" onclick="sendPrompt('Gere o prompt para o Antigravity CLI para criar a estrutura inicial do projeto com FastAPI + SQLite + autenticação JWT')">Gerar prompt: Setup do projeto ↗</button>
+      <button class="send-btn" onclick="sendPrompt('Explica como funciona o buffer circular em Python para captura de vídeo com OpenCV')">Explicar buffer circular ↗</button>
+      <button class="send-btn" onclick="sendPrompt('Qual deve ser a estrutura de pastas do projeto Sports Highlights?')">Estrutura de pastas ↗</button>
+    </div>
+  </div>
+</div>
